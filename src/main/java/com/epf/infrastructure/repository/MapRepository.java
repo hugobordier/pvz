@@ -28,4 +28,18 @@ public class MapRepository {
     public Map findById(Integer id) {
         return mapper.mapEntityToModel(mapDAO.findById(id));
     }
+
+    //  public Map save(Map map) {
+    //     var entity = mapper.mapModelToEntity(map);
+    //     MapEntity savedEntity = mapDAO.save(entity);
+    //     return mapper.mapEntityToModel(savedEntity);
+    // }
+
+    // public void deleteById(Integer id) {
+    //     mapDAO.deleteById(id);
+    // }
+
+   
+
+
 }
