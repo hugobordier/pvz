@@ -19,5 +19,6 @@ com/epf/api/dto/ReportDto.class
 com/epf/api/mapper/ReportDtoMapper.class
 com/epf/api/dto/MapDto.class
 com/epf/core/service/ReportService.class
+com/epf/api/response/MapResponse.class
 com/epf/core/service/MapService.class
 com/epf/infrastructure/mapper/ReportEntityMapper.class

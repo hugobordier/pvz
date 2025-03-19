@@ -7,7 +7,7 @@ RUN mvn clean package
 
 FROM tomcat:10.0
 
-COPY --from=build /src/target/*.war /usr/local/tomcat/webapps/pvz.war
+COPY --from=build /src/target/*.war /usr/local/tomcat/webapps/CoursEpfBack.war
 
 EXPOSE 8080
 

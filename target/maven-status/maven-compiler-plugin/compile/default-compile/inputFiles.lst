@@ -2,6 +2,7 @@
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/api/controller/ReportController.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/api/dto/ReportDto.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/api/dto/MapDto.java
+/home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/api/response/MapResponse.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/api/controller/MapController.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/infrastructure/repository/ReportRepository.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/infrastructure/mapper/MapEntityMapper.java

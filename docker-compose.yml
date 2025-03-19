@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  # Service pour ton application Spring MVC
+  # Service Spring MVC
   app:
     build: .
     ports:
@@ -16,14 +16,11 @@ services:
     volumes:
       - .:/src
 
-  # Service pour la base de données MySQL
+  # Service pour MySQL
   mysql:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: pvz
-      MYSQL_USER: hugo
-      MYSQL_PASSWORD: admin
+      SPRING_PROFILES_ACTIVE: docker
     ports:
       - "3307:3306"
     container_name: mysql-db
