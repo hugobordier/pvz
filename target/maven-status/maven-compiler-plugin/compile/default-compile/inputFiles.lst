@@ -19,4 +19,5 @@
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/config/AppConfig.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/core/service/MapService.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/App.java
+/home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/api/exception/ApiError.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/core/service/ReportService.java

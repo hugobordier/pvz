@@ -5,6 +5,7 @@ com/epf/infrastructure/entities/ReportEntity.class
 com/epf/App.class
 com/epf/infrastructure/dao/MapDAO$MapRowMapper.class
 com/epf/core/model/Report.class
+com/epf/api/exception/ApiError.class
 com/epf/infrastructure/dao/MapDAO.class
 com/epf/api/controller/ReportController.class
 com/epf/api/mapper/MapDtoMapper.class

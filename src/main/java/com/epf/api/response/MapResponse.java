@@ -11,7 +11,6 @@ public class MapResponse {
         this.data = data;
     }
 
-    // Getters and Setters
     public boolean isSuccess() {
         return success;
     }

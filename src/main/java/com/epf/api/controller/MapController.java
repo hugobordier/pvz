@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epf.api.dto.MapDto;
+import com.epf.api.exception.ApiError;
 import com.epf.api.mapper.MapDtoMapper;
 import com.epf.api.response.MapResponse;
 import com.epf.core.model.Map;
 import com.epf.core.service.MapService;
 
 @RestController
-@RequestMapping("/map")
+@RequestMapping("/maps")
 public class MapController {
 
     private final MapService mapService;
@@ -31,60 +32,95 @@ public class MapController {
 
     @GetMapping
     public ResponseEntity<MapResponse> getAllMap() {
-    List<Map> maps = mapService.findAll();
-    if (maps.isEmpty()) {
-        return new ResponseEntity<>(new MapResponse(false, "Aucune map trouvée.", null), HttpStatus.NOT_FOUND);
+        try {
+            List<Map> maps = mapService.findAll();
+            if (maps.isEmpty()) {
+                throw new ApiError("Aucune map trouvée.", HttpStatus.NOT_FOUND);
+            }
+            
+            List<MapDto> mapDtos = dtoMapper.mapListModelToListDto(maps);
+            return new ResponseEntity<>(new MapResponse(true, "Maps récupérées avec succès.", mapDtos), HttpStatus.OK);
+        } catch (ApiError e) {
+            return new ResponseEntity<>(new MapResponse(e.isSuccess(), e.getMessage(), null), e.getStatus());
+        } catch (Exception e) {
+            return new ResponseEntity<>(new MapResponse(false, "Erreur serveur: " + e.getMessage(), null), 
+                                       HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-    
-    List<MapDto> mapDtos = dtoMapper.mapListModelToListDto(maps);
-    return new ResponseEntity<>(new MapResponse(true, "Maps récupérées avec succès.", mapDtos), HttpStatus.OK);
-}
     
     @GetMapping("/{id}")
     public ResponseEntity<MapResponse> getMapById(@PathVariable("id") Integer id) {
-        Map map = mapService.findById(id);
-        if (map == null) {
-            return new ResponseEntity<>(new MapResponse(false, "Map non trouvée.", null), HttpStatus.NOT_FOUND);
+        try {
+            Map map = mapService.findById(id);
+            if (map == null) {
+                throw new ApiError("Map non trouvée avec l'ID: " + id, HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(new MapResponse(true, "Map trouvée avec succès.", dtoMapper.mapModelToDto(map)), HttpStatus.OK);
+        } catch (ApiError e) {
+            return new ResponseEntity<>(new MapResponse(e.isSuccess(), e.getMessage(), null), e.getStatus());
+        } catch (Exception e) {
+            return new ResponseEntity<>(new MapResponse(false, "Erreur serveur: " + e.getMessage(), null), 
+                                       HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(new MapResponse(true, "Map trouvée avec succès.", dtoMapper.mapModelToDto(map)), HttpStatus.OK);
     }
 
     // @PostMapping
     // public ResponseEntity<MapResponse> createMap(@RequestBody MapDto mapDto) {
-    //     if (mapDto == null) {
-    //         return ResponseEntity.badRequest().body(new MapResponse(false, "Les données envoyées sont invalides.", null));
+    //     try {
+    //         if (mapDto == null) {
+    //             throw new ApiError("Les données envoyées sont invalides.", HttpStatus.BAD_REQUEST);
+    //         }
+
+    //         Map map = dtoMapper.mapDtoToModel(mapDto);
+    //         Map createdMap = mapService.createdMap(map); 
+
+    //         return ResponseEntity.status(HttpStatus.CREATED).body(new MapResponse(true, "Map créée avec succès.", dtoMapper.mapModelToDto(createdMap)));
+    //     } catch (ApiError e) {
+    //         return new ResponseEntity<>(new MapResponse(e.isSuccess(), e.getMessage(), null), e.getStatus());
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>(new MapResponse(false, "Erreur serveur: " + e.getMessage(), null), 
+    //                                    HttpStatus.INTERNAL_SERVER_ERROR);
     //     }
-
-    //     Map map = dtoMapper.mapDtoToModel(mapDto);
-    //     Map createdMap = mapService.createMap(map); 
-
-    //     return ResponseEntity.status(HttpStatus.CREATED).body(new MapResponse(true, "Map créée avec succès.", dtoMapper.mapModelToDto(createdMap)));
     // }
 
     // @PutMapping("/{id}")
     // public ResponseEntity<MapResponse> updateMap(@PathVariable("id") Integer id, @RequestBody MapDto mapDto) {
-    //     Map existingMap = mapService.findById(id); 
-    //     if (existingMap == null) {
-    //         return new ResponseEntity<>(new MapResponse(false, "Map non trouvée.", null), HttpStatus.NOT_FOUND);
+    //     try {
+    //         Map existingMap = mapService.findById(id); 
+    //         if (existingMap == null) {
+    //             throw new ApiError("Map non trouvée avec l'ID: " + id, HttpStatus.NOT_FOUND);
+    //         }
+
+    //         existingMap.setColonne(mapDto.getColonne());
+    //         existingMap.setLigne(mapDto.getLigne());
+    //         existingMap.setCheminImage(mapDto.getCheminImage());
+
+    //         Map updatedMap = mapService.updateMap(existingMap);
+
+    //         return new ResponseEntity<>(new MapResponse(true, "Map mise à jour avec succès.", dtoMapper.mapModelToDto(updatedMap)), HttpStatus.OK);
+    //     } catch (ApiError e) {
+    //         return new ResponseEntity<>(new MapResponse(e.isSuccess(), e.getMessage(), null), e.getStatus());
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>(new MapResponse(false, "Erreur serveur: " + e.getMessage(), null), 
+    //                                    HttpStatus.INTERNAL_SERVER_ERROR);
     //     }
-
-    //     existingMap.setColonne(mapDto.getColonne());
-    //     existingMap.setLigne(mapDto.getLigne());
-    //     existingMap.setCheminImage(mapDto.getCheminImage());
-
-    //     Map updatedMap = mapService.updateMap(existingMap);
-
-    //     return new ResponseEntity<>(new MapResponse(true, "Map mise à jour avec succès.", dtoMapper.mapModelToDto(updatedMap)), HttpStatus.OK);
     // }
 
     // @DeleteMapping("/{id}")
     // public ResponseEntity<MapResponse> deleteMap(@PathVariable("id") Integer id) {
-    //     Map existingMap = mapService.findById(id);
-    //     if (existingMap == null) {
-    //         return new ResponseEntity<>(new MapResponse(false, "Map non trouvée.", null), HttpStatus.NOT_FOUND);
-    //     }
+    //     try {
+    //         Map existingMap = mapService.findById(id);
+    //         if (existingMap == null) {
+    //             throw new ApiError("Map non trouvée avec l'ID: " + id, HttpStatus.NOT_FOUND);
+    //         }
 
-    //     mapService.delete(id);
-    //     return new ResponseEntity<>(new MapResponse(true, "Map supprimée avec succès.", null), HttpStatus.NO_CONTENT);
+    //         mapService.delete(id);
+    //         return new ResponseEntity<>(new MapResponse(true, "Map supprimée avec succès.", null), HttpStatus.NO_CONTENT);
+    //     } catch (ApiError e) {
+    //         return new ResponseEntity<>(new MapResponse(e.isSuccess(), e.getMessage(), null), e.getStatus());
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>(new MapResponse(false, "Erreur serveur: " + e.getMessage(), null), 
+    //                                    HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
     // }
 }
