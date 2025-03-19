@@ -30,4 +30,9 @@ public class MapEntityMapper {
                 .map(this::mapEntityToModel)
                 .toList();
     }
+
+    public MapEntity mapModelToEntity(Map map) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'mapModelToEntity'");
+    }
 }

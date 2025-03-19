@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.epf.core.model.Map;
 import com.epf.infrastructure.dao.MapDAO;
+import com.epf.infrastructure.entities.MapEntity;
 import com.epf.infrastructure.mapper.MapEntityMapper;
 
 @Repository
@@ -29,11 +30,11 @@ public class MapRepository {
         return mapper.mapEntityToModel(mapDAO.findById(id));
     }
 
-    //  public Map save(Map map) {
-    //     var entity = mapper.mapModelToEntity(map);
-    //     MapEntity savedEntity = mapDAO.save(entity);
-    //     return mapper.mapEntityToModel(savedEntity);
-    // }
+     public Map save(Map map) {
+        
+        Map savedMap = mapDAO.save(map);
+        return savedMap;
+    }
 
     // public void deleteById(Integer id) {
     //     mapDAO.deleteById(id);

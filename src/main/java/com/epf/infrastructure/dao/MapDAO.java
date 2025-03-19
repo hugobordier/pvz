@@ -1,14 +1,16 @@
 package com.epf.infrastructure.dao;
 
-import com.epf.infrastructure.entities.MapEntity;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import com.epf.core.model.Map;
+import com.epf.infrastructure.entities.MapEntity;
 
 @Repository
 public class MapDAO {
@@ -42,4 +44,16 @@ public class MapDAO {
             return map;
         }
     }
+
+    public Map save(Map map) {
+    if (map.getIdMap() == null) {
+        String sql = "INSERT INTO Map (ligne, colonne, chemin_image) VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql, map.getLigne(), map.getColonne(), map.getCheminImage());
+    } else {
+        String sql = "UPDATE Map SET ligne = ?, colonne = ?, chemin_image = ? WHERE id_map = ?";
+        jdbcTemplate.update(sql, map.getLigne(), map.getColonne(), map.getCheminImage(), map.getIdMap());
+    }
+    
+    return map; 
+}
 }
