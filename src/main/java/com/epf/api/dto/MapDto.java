@@ -1,18 +1,18 @@
 package com.epf.api.dto;
 
-public class MapDto {
+public class MapDto{
     private Integer id;
     private Integer ligne;
     private Integer colonne;
-    private String cheminImage;
+    private String chemin_image;
 
     public MapDto() {}
 
-    public MapDto(Integer id, Integer ligne, Integer colonne, String cheminImage) {
+    public MapDto(Integer id, Integer ligne, Integer colonne, String chemin_image) {
         this.id = id;
         this.ligne = ligne;
         this.colonne = colonne;
-        this.cheminImage = cheminImage;
+        this.chemin_image = chemin_image;
     }
 
     public Integer getId() {
@@ -40,10 +40,11 @@ public class MapDto {
     }
 
     public String getCheminImage() {
-        return cheminImage;
+        return chemin_image;
     }
 
-    public void setCheminImage(String cheminImage) {
-        this.cheminImage = cheminImage;
+    public void setchemin_image(String chemin_image) {
+        this.chemin_image = chemin_image;
     }
+
 }

@@ -28,5 +28,19 @@ services:
       - mysql-data:/var/lib/mysql
       - ./pvz.sql:/docker-entrypoint-initdb.d/pvz.sql
 
+  # Service Frontend
+  front-pvz:
+    build:
+      context: ./front_pvz
+    working_dir: /front_pvz
+    command: bun dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./front_pvz:/front_pvz
+    depends_on:
+      - app
+    container_name: front-pvz
+
 volumes:
   mysql-data:

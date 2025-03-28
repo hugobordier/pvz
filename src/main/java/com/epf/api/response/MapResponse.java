@@ -11,6 +11,10 @@ public class MapResponse {
         this.data = data;
     }
 
+    public static MapResponse of(boolean success, String message, Object data) {
+    return new MapResponse(success, message, data);
+}
+
     public boolean isSuccess() {
         return success;
     }
