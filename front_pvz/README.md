@@ -43,6 +43,7 @@ L'application comporte trois sections principales :
 Avant d'utiliser l'éditeur ou le jeu, vous **DEVEZ** d'abord valider tous les endpoints dans cet ordre :
 
 1. Validez d'abord les endpoints de validation du format des données :
+
    - `/plantes/validation`
    - `/zombies/validation`
    - `/maps/validation`
@@ -60,6 +61,7 @@ Si vous ne validez pas d'abord les formats de données, l'application risque de 
 L'application attend les structures de données suivantes du backend :
 
 ### Plante
+
 ```json
 {
   "id_plante": number,
@@ -75,6 +77,7 @@ L'application attend les structures de données suivantes du backend :
 ```
 
 ### Zombie
+
 ```json
 {
   "id_zombie": number,
@@ -89,6 +92,7 @@ L'application attend les structures de données suivantes du backend :
 ```
 
 ### Map
+
 ```json
 {
   "id_map": number,
@@ -103,6 +107,7 @@ L'application attend les structures de données suivantes du backend :
 L'application communique avec les endpoints suivants :
 
 ### Plantes
+
 - `GET /plantes` - Liste toutes les plantes
 - `GET /plantes/{id}` - Récupère une plante par son ID
 - `POST /plantes` - Crée une nouvelle plante
@@ -110,6 +115,7 @@ L'application communique avec les endpoints suivants :
 - `DELETE /plantes/{id}` - Supprime une plante
 
 ### Zombies
+
 - `GET /zombies` - Liste tous les zombies
 - `GET /zombies/{id}` - Récupère un zombie par son ID
 - `POST /zombies` - Crée un nouveau zombie
@@ -117,6 +123,7 @@ L'application communique avec les endpoints suivants :
 - `DELETE /zombies/{id}` - Supprime un zombie
 
 ### Maps
+
 - `GET /maps` - Liste toutes les maps
 - `GET /maps/{id}` - Récupère une map par son ID
 - `POST /maps` - Crée une nouvelle map
@@ -247,6 +254,7 @@ FLUSH PRIVILEGES;
 ## Dépannage
 
 Si vous rencontrez des problèmes avec l'affichage des images :
+
 1. Vérifiez que le dossier `images` est correctement placé dans `webapp`
 2. Vérifiez que la configuration CORS est correctement implémentée
 3. Assurez-vous que les chemins d'accès aux images dans la base de données correspondent à la structure du dossier `images`
@@ -260,6 +268,7 @@ Si vous rencontrez des problèmes avec l'affichage des images :
 5. Une fois tous les tests réussis, vous pouvez utiliser l'éditeur et jouer au jeu
 
 ## Problème de configuration ? Contactez-nous :
+
 Si vous rencontrez des difficultés avec la configuration du front ou autre, n'hésitez pas à nous contacter :
 
 - Wassim Bayoub (wbayoub@oxyl.fr)
