@@ -1,26 +1,31 @@
 package com.epf.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MapDto{
-    private Integer id;
+
+    @JsonProperty("id_map")
+    private Integer id_map;
     private Integer ligne;
     private Integer colonne;
+    @JsonProperty("chemin_image")
     private String chemin_image;
 
     public MapDto() {}
 
-    public MapDto(Integer id, Integer ligne, Integer colonne, String chemin_image) {
-        this.id = id;
+    public MapDto(Integer id_map, Integer ligne, Integer colonne, String chemin_image) {
+        this.id_map = id_map;
         this.ligne = ligne;
         this.colonne = colonne;
         this.chemin_image = chemin_image;
     }
 
     public Integer getId() {
-        return id;
+        return id_map;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer id_map) {
+        this.id_map = id_map;
     }
 
     public Integer getLigne() {
@@ -43,7 +48,7 @@ public class MapDto{
         return chemin_image;
     }
 
-    public void setchemin_image(String chemin_image) {
+    public void setCheminImage(String chemin_image) {
         this.chemin_image = chemin_image;
     }
 

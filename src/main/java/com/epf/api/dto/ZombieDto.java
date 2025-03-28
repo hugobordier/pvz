@@ -3,7 +3,8 @@ package com.epf.api.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ZombieDto {
-    private Integer idZombie;
+    @JsonProperty("id_zombie")
+    private Integer id_zombie;
     
     @JsonProperty("nom")
     private String nom;
@@ -28,9 +29,9 @@ public class ZombieDto {
 
     public ZombieDto() {}
 
-    public ZombieDto(Integer idZombie, String nom, Integer pointDeVie, Double attaqueParSeconde, Integer degatAttaque, 
+    public ZombieDto(Integer id_zombie, String nom, Integer pointDeVie, Double attaqueParSeconde, Integer degatAttaque, 
                      Double vitesseDeDeplacement, String cheminImage, Integer idMap) {
-        this.idZombie = idZombie;
+        this.id_zombie = id_zombie;
         this.nom = nom;
         this.pointDeVie = pointDeVie;
         this.attaqueParSeconde = attaqueParSeconde;
@@ -41,11 +42,11 @@ public class ZombieDto {
     }
 
     public Integer getIdZombie() {
-        return idZombie;
+        return id_zombie;
     }
 
-    public void setIdZombie(Integer idZombie) {
-        this.idZombie = idZombie;
+    public void setIdZombie(Integer id_zombie) {
+        this.id_zombie = id_zombie;
     }
 
     public String getNom() {
