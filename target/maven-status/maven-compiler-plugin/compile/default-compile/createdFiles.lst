@@ -1,5 +1,6 @@
 com/epf/infrastructure/entities/ZombieEntity.class
 com/epf/api/response/PlanteResponse.class
+com/epf/config/WebMvcConfig.class
 com/epf/infrastructure/mapper/PlanteEntityMapper.class
 com/epf/core/model/Zombie.class
 com/epf/infrastructure/dao/ZombieDAO$ZombieRowMapper.class

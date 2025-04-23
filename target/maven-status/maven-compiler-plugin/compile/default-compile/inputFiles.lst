@@ -26,6 +26,7 @@
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/core/service/ZombieService.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/infrastructure/repository/ZombieRepository.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/infrastructure/mapper/MapEntityMapper.java
+/home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/config/WebMvcConfig.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/core/model/Plante.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/infrastructure/dao/MapDAO.java
 /home/hugo/Documents/4A/JAVA/projet_pvz/src/main/java/com/epf/config/WebAppInitializer.java

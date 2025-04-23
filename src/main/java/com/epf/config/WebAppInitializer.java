@@ -6,16 +6,17 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletRegistration;
 
-public class WebAppInitializer implements WebApplicationInitializer {
+public class WebAppInitializer implements WebApplicationInitializer, WebMvcConfigurer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-        appContext.register(AppConfig.class);
+        appContext.register(AppConfig.class, WebMvcConfig.class);
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(appContext);
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", dispatcherServlet);
@@ -39,4 +40,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         servletContext.addFilter("corsFilter", corsFilter)
                       .addMappingForUrlPatterns(null, false, "/*");
     }
+
+   
+    
 }

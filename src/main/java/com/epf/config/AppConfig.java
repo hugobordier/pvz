@@ -19,8 +19,8 @@ public class AppConfig implements WebMvcConfigurer {
     public static DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/pvz"); //change localhost en mysql pour compose docker
-        dataSource.setUsername("hugo");
+        dataSource.setUrl("jdbc:mysql://mysql:3306/pvz"); //change localhost en mysql ou l'inverse pour compose docker
+        dataSource.setUsername("hugo"); 
         dataSource.setPassword("admin");
         return dataSource;
     }

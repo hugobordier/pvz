@@ -68,7 +68,7 @@ CREATE TABLE `Plante` (
 
 LOCK TABLES `Plante` WRITE;
 /*!40000 ALTER TABLE `Plante` DISABLE KEYS */;
-INSERT INTO `Plante` VALUES (1,'Tournesol',100,0.00,0,50,25.00,'normal','images/plante/tournesol.png'),(2,'Pois Tireur',150,1.50,20,100,0.00,'normal','images/plante/poistireur.png'),(3,'Double Pisto P',150,1.50,40,200,0.00,'normal','images/plante/doublepois.png'),(4,'Glace Pois',120,1.00,10,175,0.00,'slow low','images/plante/glacepois.png'),(5,'Noix',300,0.00,0,50,0.00,'normal','images/plante/noix.png');
+INSERT INTO `Plante` VALUES (1,'Tournesol',100,0.00,0,50,25.00,'normal','images/plante/maison1.png'),(2,'Pois Tireur',150,1.50,20,100,0.00,'normal','images/plante/maison2.png'),(3,'Double Pisto P',150,1.50,40,200,0.00,'normal','images/plante/maison3.png'),(4,'Glace Pois',120,1.00,10,175,0.00,'slow low','images/plante/maison4.png'),(5,'Noix',300,0.00,0,50,0.00,'normal','images/plante/noix.png');
 /*!40000 ALTER TABLE `Plante` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -1,3 +1,5 @@
 /logs
 /target
 /front_pvz/node_modules
+/front_pvz/logs
+/mysql-local-data
