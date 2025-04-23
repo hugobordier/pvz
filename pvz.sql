@@ -68,7 +68,7 @@ CREATE TABLE `Plante` (
 
 LOCK TABLES `Plante` WRITE;
 /*!40000 ALTER TABLE `Plante` DISABLE KEYS */;
-INSERT INTO `Plante` VALUES (1,'Tournesol',100,0.00,0,50,25.00,'normal','images/plante/maison1.png'),(2,'Pois Tireur',150,1.50,20,100,0.00,'normal','images/plante/maison2.png'),(3,'Double Pisto P',150,1.50,40,200,0.00,'normal','images/plante/maison3.png'),(4,'Glace Pois',120,1.00,10,175,0.00,'slow low','images/plante/maison4.png'),(5,'Noix',300,0.00,0,50,0.00,'normal','images/plante/noix.png');
+INSERT INTO `Plante` VALUES (1,'Tournesol',100,0.00,0,50,25.00,'normal','images/plante/maison1.png'),(2,'Pois Tireur',150,1.50,20,100,0.00,'normal','images/plante/maison2.png'),(3,'Double Pisto P',150,1.50,40,200,0.00,'normal','images/plante/maison3.png'),(4,'Glace Pois',120,1.00,10,175,0.00,'slow low','images/plante/maison4.png'),(5,'Noix',300,0.00,0,50,0.00,'normal','images/plante/maison5.jpg');
 /*!40000 ALTER TABLE `Plante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +100,7 @@ CREATE TABLE `Zombie` (
 
 LOCK TABLES `Zombie` WRITE;
 /*!40000 ALTER TABLE `Zombie` DISABLE KEYS */;
-INSERT INTO `Zombie` VALUES (1,'Zombie de base',100,0.80,10,0.50,'images/zombie/zombie.png',1),(2,'Zombie Cone',200,0.80,10,0.45,'images/zombie/conehead.png',1),(3,'Zombie Seau',300,0.70,10,0.40,'images/zombie/buckethead.png',1),(4,'Runner Zombie',80,1.00,8,0.70,'images/zombie/runner.png',2),(5,'Football Zombie',250,0.90,12,0.60,'images/zombie/football.png',3);
+INSERT INTO `Zombie` VALUES (1,'Zombie de base',100,0.80,10,0.50,'images/zombie/avion1.jpg',1),(2,'Zombie Cone',200,0.80,10,0.45,'images/zombie/avion2.webp',1),(3,'Zombie Seau',300,0.70,10,0.40,'images/zombie/avion3.jpg',1),(4,'Runner Zombie',80,1.00,8,0.70,'images/zombie/avion4.webp',2),(5,'Football Zombie',250,0.90,12,0.60,'images/zombie/avion5.jpg',3);
 /*!40000 ALTER TABLE `Zombie` ENABLE KEYS */;
 UNLOCK TABLES;
 
