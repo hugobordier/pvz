@@ -24,7 +24,8 @@ services:
       - "3307:3306"
     container_name: mysql-db
     volumes:
-      - ./mysql-local-data:/var/lib/mysql #mysql-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
+      #- ./mysql-local-data:/var/lib/mysql #mysql-data:/var/lib/mysql
       - ./pvz.sql:/docker-entrypoint-initdb.d/pvz.sql
 
   # Service Frontend
