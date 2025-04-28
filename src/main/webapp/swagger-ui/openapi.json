@@ -1,0 +1,548 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PVZ API",
+    "description": "Documentation de l'API pvz",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/CoursEpfBack"
+    }
+  ],
+  "paths": {
+    "/zombies": {
+      "get": {
+        "summary": "Liste les zombies",
+        "tags": ["Zombies"],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non trouvé"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crée un zombie",
+        "tags": ["Zombies"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_zombie": {
+                    "type": "integer"
+                  },
+                  "nom": {
+                    "type": "string"
+                  },
+                  "point_de_vie": {
+                    "type": "integer"
+                  },
+                  "attaque_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "degat_attaque": {
+                    "type": "integer"
+                  },
+                  "vitesse_de_deplacement": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "chemin_image": {
+                    "type": "string"
+                  },
+                  "id_map": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "id_zombie",
+                  "nom",
+                  "point_de_vie",
+                  "attaque_par_seconde",
+                  "degat_attaque",
+                  "vitesse_de_deplacement",
+                  "chemin_image"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non créé"
+          }
+        }
+      }
+    },
+    "/zombies/{id}": {
+      "get": {
+        "summary": "Récupère un zombie par son ID",
+        "tags": ["Zombies"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non trouvé"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modifie un zombie",
+        "tags": ["Zombies"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_zombie": {
+                    "type": "integer"
+                  },
+                  "nom": {
+                    "type": "string"
+                  },
+                  "point_de_vie": {
+                    "type": "integer"
+                  },
+                  "attaque_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "degat_attaque": {
+                    "type": "integer"
+                  },
+                  "vitesse_de_deplacement": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "chemin_image": {
+                    "type": "string"
+                  },
+                  "id_map": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "id_zombie",
+                  "nom",
+                  "point_de_vie",
+                  "attaque_par_seconde",
+                  "degat_attaque",
+                  "vitesse_de_deplacement",
+                  "chemin_image"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zombie modifié"
+          },
+          "404": {
+            "description": "Zombie non trouvé"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Supprime un zombie",
+        "tags": ["Zombies"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non supprimé"
+          }
+        }
+      }
+    },
+    "/maps": {
+      "get": {
+        "summary": "Liste les maps",
+        "tags": ["Maps"],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non trouvé"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crée une map",
+        "tags": ["Maps"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_map": {
+                    "type": "integer"
+                  },
+                  "ligne": {
+                    "type": "integer"
+                  },
+                  "colonne": {
+                    "type": "integer"
+                  },
+                  "cheminImage": {
+                    "type": "string"
+                  }
+                },
+                "required": ["id_map", "ligne", "colonne", "cheminImage"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non créé"
+          }
+        }
+      }
+    },
+    "/maps/{id}": {
+      "get": {
+        "summary": "Récupère une map par son ID",
+        "tags": ["Maps"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non trouvé"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modifie une map",
+        "tags": ["Maps"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_map": {
+                    "type": "integer"
+                  },
+                  "ligne": {
+                    "type": "integer"
+                  },
+                  "colonne": {
+                    "type": "integer"
+                  },
+                  "cheminImage": {
+                    "type": "string"
+                  }
+                },
+                "required": ["id_map", "ligne", "colonne", "cheminImage"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non modifiée"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Supprime une map",
+        "tags": ["Maps"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non supp"
+          }
+        }
+      }
+    },
+
+    "/plantes": {
+      "get": {
+        "summary": "Liste les plantes",
+        "tags": ["Plantes"],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non trouvée"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crée une plante",
+        "tags": ["Plantes"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_plante": {
+                    "type": "integer"
+                  },
+                  "nom": {
+                    "type": "string"
+                  },
+                  "point_de_vie": {
+                    "type": "integer"
+                  },
+                  "attaque_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "degat_attaque": {
+                    "type": "integer"
+                  },
+                  "cout": {
+                    "type": "integer"
+                  },
+                  "soleil_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "effet": {
+                    "type": "string"
+                  },
+                  "chemin_image": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id_plante",
+                  "nom",
+                  "point_de_vie",
+                  "attaque_par_seconde",
+                  "degat_attaque",
+                  "cout",
+                  "soleil_par_seconde",
+                  "effet",
+                  "chemin_image"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non créée"
+          }
+        }
+      }
+    },
+    "/plantes/{id}": {
+      "get": {
+        "summary": "Récupère une plante par son ID",
+        "tags": ["Plantes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non trouvée"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modifie une plante",
+        "tags": ["Plantes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_plante": {
+                    "type": "integer"
+                  },
+                  "nom": {
+                    "type": "string"
+                  },
+                  "point_de_vie": {
+                    "type": "integer"
+                  },
+                  "attaque_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "degat_attaque": {
+                    "type": "integer"
+                  },
+                  "cout": {
+                    "type": "integer"
+                  },
+                  "soleil_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "effet": {
+                    "type": "string"
+                  },
+                  "chemin_image": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id_plante",
+                  "nom",
+                  "point_de_vie",
+                  "attaque_par_seconde",
+                  "degat_attaque",
+                  "cout",
+                  "soleil_par_seconde",
+                  "effet",
+                  "chemin_image"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non modifiée"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Supprime une plante",
+        "tags": ["Plantes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non supp"
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,8 +11,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Indique à Spring où trouver les images à servir
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("/images/", "classpath:/webapp/images/");
+                
+        registry.addResourceHandler("/swagger-ui/**")
+                .addResourceLocations("/swagger-ui/");
+        
     }
 }

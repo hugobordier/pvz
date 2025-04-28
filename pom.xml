@@ -25,6 +25,18 @@
             <version>6.2.2</version>
         </dependency>
 
+       <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.2.21</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>5.15.0</version>
+        </dependency>
+
         <!-- Spring JDBC Template -->
         <dependency>
             <groupId>org.springframework</groupId>
